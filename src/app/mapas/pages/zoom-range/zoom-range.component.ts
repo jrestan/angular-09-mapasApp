@@ -49,6 +49,10 @@ export class ZoomRangeComponent implements OnInit, AfterViewInit, OnDestroy {
         zoom: this.zoomLevel
     });
 
+    new mapboxgl.Marker({})
+      .setLngLat( this.center )
+      .addTo( this.mapa );
+
     this.mapa.on('zoom', (ev)=>{
       //console.log('zoom', ev);
       this.zoomLevel = this.mapa.getZoom();
@@ -74,7 +78,7 @@ export class ZoomRangeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    
+
     this.mapa.off('zoom', ()=>{});
     this.mapa.off('zoomend', ()=>{});
     this.mapa.off('move', ()=>{});

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import * as mapboxgl from 'mapbox-gl';
-import { environment } from '../../../../environments/environment.prod';
+//import { environment } from '../../../../environments/environment.prod';
 
 //var mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
 
@@ -24,11 +24,15 @@ export class FullScreenComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    (mapboxgl as any).accessToken = environment.mapBoxToken;
+
+    //(mapboxgl as any).accessToken = environment.mapBoxToken;
     var map = new mapboxgl.Map({
         container: 'mapa',
-        style: 'mapbox://styles/mapbox/streets-v11'
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-77.00648331728992, -12.11750778211622],
+        zoom: 18
     });
+
   }
 
 }
